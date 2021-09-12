@@ -1,7 +1,10 @@
+import { createContext } from 'react'
 import { Route, BrowserRouter } from 'react-router-dom'
 
 import { Home } from "./pages/Home";
 import { NewRoom } from "./pages/NewRoom";
+
+const TestContext = createContext('')
 
 function App() {
   return (
@@ -13,3 +16,5 @@ function App() {
 }
 
 export default App;
+
+// 59:30
