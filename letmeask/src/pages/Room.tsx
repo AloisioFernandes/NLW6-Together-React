@@ -27,7 +27,7 @@ type RoomParams = {
   id: string;
 }
 
-type Question = {
+type QuestionType = {
   id: string;
   author: {
     name: string;
@@ -40,7 +40,7 @@ type Question = {
 
 export function Room() {
   const [newQuestion, setNewQuestion] = useState('')
-  const [questions, setQuestions] = useState<Question[]>([])
+  const [questions, setQuestions] = useState<QuestionType[]>([])
   const [title, setTitle] = useState('')
 
   const { user } = useAuth()
@@ -132,11 +132,17 @@ export function Room() {
           </div>
         </form>
 
-        {questions.map(question => {
-          return (
-            <Question content={question.content} author={question.author} />
-          )
-        })}
+        <div className="question-list">
+          {questions.map(question => {
+            return (
+              <Question 
+                key={question.id}
+                content={question.content} 
+                author={question.author} 
+              />
+            )
+          })}
+        </div>
       </main>
     </div>
   )
