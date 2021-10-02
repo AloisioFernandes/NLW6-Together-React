@@ -7,9 +7,8 @@ import { Button } from '../components/Button'
 import { Question } from '../components/Question'
 import { RoomCode } from '../components/RoomCode'
 
-import { useAuth } from '../hooks/useAuth'
+// import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
-import { database } from '../services/firebase'
 
 import '../styles/room.scss'
 
@@ -18,13 +17,11 @@ type RoomParams = {
 }
 
 
-export function AdminRoom() {
-  const [newQuestion, setNewQuestion] = useState('')
-  
+export function AdminRoom() {  
   const params = useParams<RoomParams>()
   const roomId = params.id 
 
-  const { user } = useAuth()
+  // const { user } = useAuth()
   const { title, questions } = useRoom(roomId)
 
   return (
